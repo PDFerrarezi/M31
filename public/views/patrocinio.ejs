@@ -24,7 +24,66 @@
                 <h2>M31</h2>
                 <h1>Hurricanes</h1>
             </div>
+            <div>
+                <p>Quer nos patrocinar? &#x1F49C</p>
+                <p>Preencha o formulário:</p>
+                <div class="form">
+                    <form id="formulario-patrocinio">
+                        <label for="nome">Nome:</label>
+                        <input type="text" id="nome" placeholder="Qual seu nome?" required>
+
+                        <label for="empresa">Empresa:</label>
+                        <input type="text" id="empresa" placeholder="Qual o nome da sua empresa?">
+
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" placeholder="Qual seu email?" required>
+
+                        <label for="telefone">Telefone:</label>
+                        <input type="tel" id="telefone" placeholder="Qual seu telefone?" required>
+
+                        <label for="mensagem">Mensagem:</label>
+                        <textarea id="mensagem" rows="4" required></textarea>
+
+                        <button type="submit">Enviar</button>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
+
+    <script>
+        document.getElementById('formulario-patrocinio').addEventListener("submit", async (event) => {
+            event.preventDefault()
+            const nome = document.getElementById('nome').value
+            const empresa = document.getElementById('empresa').value || "Não informado"
+            const email = document.getElementById('email').value
+            const telefone = document.getElementById('telefone').value
+            const mensagem = document.getElementById('mensagem').value
+
+            try {
+                const response = await fetch('/api/patrocinio', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        nome,
+                        email,
+                        empresa,
+                        telefone,
+                        mensagem
+                    })
+                })
+                if (response.ok) {
+                    alert("Enviado com êxito! Obrigado por nos ajudar!")
+                } else {
+                    alert("Houve um erro ao enviar, mas já vamos resolver! Tente novamente mais tarde.")
+                }
+            } catch (error) {
+                console.error(error)
+                alert("Houve um erro ao enviar, mas já vamos resolver! Tente novamente mais tarde.")
+            }
+        })
+    </script>
 </body>
 </html>
