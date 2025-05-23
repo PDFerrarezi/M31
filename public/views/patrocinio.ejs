@@ -48,10 +48,18 @@
                     </form>
                 </div>
             </div>
+            <div id="alert" class="alert">
+                <span id="status" class="alert-title"></span>
+                <span id="mensagem" class="alert-text"></span>
+                <button id="ok">Ok</button>
+            </div>
         </div>
     </div>
 
     <script>
+        const alert = document.querySelector("#alert")
+        const alert_title = document.querySelector("#status")
+        const alert_text = document.querySelector("#mensagem")
         document.getElementById('formulario-patrocinio').addEventListener("submit", async (event) => {
             event.preventDefault()
             const nome = document.getElementById('nome').value
@@ -75,14 +83,24 @@
                     })
                 })
                 if (response.ok) {
-                    alert("Enviado com êxito! Obrigado por nos ajudar!")
+                    alert_title.innerText = "Enviado com êxito!"
+                    alert_text.innerText = "Obrigado por nos ajudar!"
+                    alert.style.display = "block"
                 } else {
-                    alert("Houve um erro ao enviar, mas já vamos resolver! Tente novamente mais tarde.")
+                    alert_title.innerText = "Houve um erro ao enviar"
+                    alert_text.innerText = "Já vamos resolver! Tente novamente mais tarde."
+                    alert.style.display = "block"
                 }
             } catch (error) {
                 console.error(error)
-                alert("Houve um erro ao enviar, mas já vamos resolver! Tente novamente mais tarde.")
+                alert_title.innerText = "Houve um erro ao enviar"
+                alert_text.innerText = "Já vamos resolver! Tente novamente mais tarde."
+                alert.style.display = "block"
             }
+        })
+
+        document.querySelector("#ok").addEventListener("click", () => {
+            alert.style.display = "none"
         })
     </script>
 </body>

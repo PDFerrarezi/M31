@@ -1,13 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
 body {
-    color: black;
+    background: linear-gradient(40deg, #1f0036, #4b0082);
+    color: #f0f0f0;
+    min-height: 100vh;
+    padding: 2%;
 }
 
-a:link,  a:visited, a:active {
+.main {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    max-width: 90%;
+    margin: auto;
+}
+
+.menu {
+    flex: 1;
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 3%;
+    max-width: 20%;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(18, 0, 36, 0.1);
+    position: sticky;
+    top: 0;
+    min-height: 80vh;
+    max-height: 80vh;
+}
+
+.menu ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.menu a {
+    color: #f0f0f0;
     text-decoration: none;
-    color: #2c2c2c;
+    font-size: 1.1rem;
+}
+
+.menu li {
+    transition: all 0.5s ease;
+    padding: 4%;
+    border-radius: 5px;
+}
+
+.menu li:hover {
+    background-color: #fcff5a;
+    transform: translateX(5px);
+}
+.menu li:hover a {
+        color: #1f0036;
+}
+
+.container {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.header {
+    text-align: center;
+    padding: 1rem;
+    background-color: rgba(75, 0, 130, 0.3);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(18, 0, 36, 0.3);
+    min-width: 65vw;
+    max-width: 65vw;
+}
+
+.header h2 {
+    font-size: 1.5rem;
+    color: #d29bff;
+}
+
+.header h1 {
+    font-size: 3rem;
+    margin: 0.2rem 0;
+}
+
+.header p {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    font-style: italic;
+}
+
+.description p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+    font-size: 1.1rem;
+}
+
+.description strong {
+    color: #d29bff;
+    font-style: italic;
+}
+
+.patrocinio {
+    padding: 1rem;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.patrocinio h2 {
+    margin-bottom: 1rem;
+    font-size: 1.6rem;
+    color: #d29bff;
+    text-transform: capitalize;
 }
